@@ -14,6 +14,6 @@ class AuthController extends Controller
             "gender"=>"Laki-laki",
             "phone"=>"081325218571",
             "class"=>"XII RPL 2",
-        ]
+        ];
     }
 }
