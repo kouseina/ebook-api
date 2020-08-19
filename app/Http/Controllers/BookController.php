@@ -65,7 +65,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -88,6 +88,6 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Book::find($id)->delete();
     }
 }
