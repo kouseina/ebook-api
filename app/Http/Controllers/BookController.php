@@ -83,6 +83,7 @@ class BookController extends Controller
         $book-> author = $request->author;
         $book-> publisher= $request->publisher;
         $book-> date_of_issue= $request->date_of_issue;
+        $book-> save();
     }
 
     /**
