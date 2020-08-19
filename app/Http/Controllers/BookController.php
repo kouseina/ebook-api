@@ -37,7 +37,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        Book::create([
+        return Book::create([
             "title" => $request->title,
             "description" => $request->description,
             "author"=> $request->author,
@@ -54,7 +54,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        return Book::find($id);
     }
 
     /**
