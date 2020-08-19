@@ -16,9 +16,7 @@ class BookController extends Controller
     public function index()
     {
         // native: select * from books
-        Book::get();
-        
-        return "Data ditampilkan";
+        return Book::get();
     }
 
     /**
@@ -39,15 +37,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        Book::create([
+        return Book::create([
             "title" => $request->title,
             "description" => $request->description,
             "author"=> $request->author,
             "publisher"=> $request->publisher,
             "date_of_issue"=> $request->date_of_issue,
         ]);
-
-        return "Data terisi";
     }
 
     /**
@@ -58,9 +54,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        Book::find($id);
-
-        return "Data ditampilkan";
+        return Book::find($id);
     }
 
     /**
@@ -89,8 +83,6 @@ class BookController extends Controller
         $book-> author = $request->author;
         $book-> publisher= $request->publisher;
         $book-> date_of_issue= $request->date_of_issue;
-
-        return "Data terupdate";
     }
 
     /**
@@ -101,8 +93,6 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        Book::find($id)->delete();
-
-        return "Data terhapus";
+        return Book::find($id)->delete();
     }
 }
