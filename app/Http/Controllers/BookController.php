@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Book;
+
 class BookController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        // native: select * from books
+        return Book::get();
     }
 
     /**
@@ -34,7 +37,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Book::create([
+            "title" => $request->title,
+            "description" => $request->description,
+            "author"=> $request->author,
+            "publisher"=> $request->publisher,
+            "date_of_issue"=> $request->date_of_issue,
+        ]);
     }
 
     /**
@@ -45,7 +54,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        return Book::find($id);
     }
 
     /**
@@ -56,7 +65,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -79,6 +88,6 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Book::find($id)->delete();
     }
 }

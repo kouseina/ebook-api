@@ -18,4 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('books', 'BookController@index');
+Route::get('books', 'BookController@index'); // show all data
+Route::post('books', 'BookController@store'); // create new data
+Route::get('books/{id}', 'BookController@show'); // show data by id (detail data)
+Route::put('books/edit/{id}', 'BookController@update'); // update data
+Route::delete('books/delete/{id}', 'BookController@destroy'); // delete data
+
+// Route::resource('books', 'BookController');
