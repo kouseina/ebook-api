@@ -17,6 +17,11 @@ class BookController extends Controller
     {
         // native: select * from books
         return Book::get();
+        if ($book && $book->count() > 0) {
+            return response(["message" => "Show data success.", "data"]);
+        }else {
+            return response(["message" => "Data not found.", "data"]);
+        }
     }
 
     /**
@@ -44,6 +49,9 @@ class BookController extends Controller
             "publisher"=> $request->publisher,
             "date_of_issue"=> $request->date_of_issue,
         ]);
+
+        return response(["message" => "Create data success.", "data"]);
+        
     }
 
     /**
@@ -55,6 +63,11 @@ class BookController extends Controller
     public function show($id)
     {
         return Book::find($id);
+        if ($book && $book->count() > 0) {
+            return response(["message" => "Show data success.", "data"]);
+        }else {
+            return response(["message" => "Data not found.", "data"]);
+        }
     }
 
     /**
@@ -84,6 +97,12 @@ class BookController extends Controller
         $book-> publisher= $request->publisher;
         $book-> date_of_issue= $request->date_of_issue;
         $book-> save();
+
+        if ($book && $book->count() > 0) {
+            return response(["message" => "Update data success.", "data"]);
+        }else {
+            return response(["message" => "Data not found.", "data"]);
+        }
     }
 
     /**
